@@ -1,41 +1,49 @@
+{% load compress %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Product Prices in Nepal</title>
+<head>
+    <title>Product Prices in Nepal</title>
+    {% compress css %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
-    
+        <!-- Add more CSS files here -->
+        <!-- For example: -->
+        <!-- <link rel="stylesheet" href="{% static 'css/custom.css' %}"> -->
+    {% endcompress %}
+</head>
 <body>
-    <body>
-        <div class="container">
-            <h1 class="mt-5">Product Prices in Nepal</h1>
-            <a href="/admin/">Admin</a>
-            <div class="table-responsive mt-4">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Release Date</th>
-                            <th>Company</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for product in products %}
-                        <tr>
-                            <td>{{ product.name }}</td>
-                            <td><img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 100px;"></td>
-                            <td>{{ product.release_date }}</td>
-                            <td>{{ product.company }}</td>
-                            <td>NPR {{ product.price }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+    <div class="container">
+        <h1 class="mt-5">Product Prices in Nepal</h1>
+        <a href="/admin/">Admin</a>
+        <div class="table-responsive mt-4">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Release Date</th>
+                        <th>Company</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td><img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 100px;"></td>
+                        <td>{{ product.release_date }}</td>
+                        <td>{{ product.company }}</td>
+                        <td>NPR {{ product.price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-    </body>
-    
+    </div>
+
+    {% compress js %}
+        <!-- Add JavaScript files here -->
+        <!-- For example: -->
+        <!-- <script src="{% static 'js/custom.js' %}"></script> -->
+    {% endcompress %}
 </body>
 </html>
