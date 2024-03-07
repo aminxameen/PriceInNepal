@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.product_list, name='product_list'),
+    path('', views.product_list),
 ]
 
 if settings.DEBUG:
